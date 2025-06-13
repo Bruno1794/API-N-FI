@@ -22,7 +22,8 @@ router.get('/bancos', eAdmin, async (req, res) => {
 
     const bancos = await db.Bank.findAll({
         attributes: ['id', 'name'],
-        where
+        where,
+    order: [['name', 'asc']]
     })
     return res.json({
         success: true,

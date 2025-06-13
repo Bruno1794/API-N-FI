@@ -22,7 +22,8 @@ router.get('/categorias', eAdmin, async (req, res) => {
 
     const categorias = await db.Category.findAll({
         attributes: ['id', 'name', 'status'],
-        where
+        where,
+        order: [['name', 'asc']]
     })
     if (categorias.length > 0) {
         res.json({
