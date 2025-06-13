@@ -23,7 +23,8 @@ router.get('/categorias', eAdmin, async (req, res) => {
     const categorias = await db.Category.findAll({
         attributes: ['id', 'name', 'status'],
         where,
-        order: [[db.sequelize.fn('LOWER', db.sequelize.col('name')), 'ASC']]    })
+        order: [['name', 'asc']] // usa collation corretamente
+    })
     if (categorias.length > 0) {
         res.json({
             status: 'true',

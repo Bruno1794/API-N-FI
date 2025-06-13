@@ -23,7 +23,8 @@ router.get('/bancos', eAdmin, async (req, res) => {
     const bancos = await db.Bank.findAll({
         attributes: ['id', 'name'],
         where,
-        order: [[db.sequelize.fn('LOWER', db.sequelize.col('name')), 'ASC']]    })
+        order: [['name', 'asc']] // usa collation corretamente
+    })
     return res.json({
         success: true,
         data: bancos
