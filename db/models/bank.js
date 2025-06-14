@@ -11,9 +11,8 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            Bank.hasMany(models.User, {
-                foreignKey: 'user_id',
-            })
+            Bank.hasMany(models.User, {foreignKey: 'user_id',})
+            Bank.hasMany(models.Moviment, {foreignKey: "bank_id"})
         }
     }
 

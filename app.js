@@ -17,11 +17,13 @@ const usuarios = require('./controllers/usuario');
 const login = require('./controllers/login');
 const category = require('./controllers/category');
 const bancos = require('./controllers/bank');
+const moviment = require('./controllers/moviment');
 
 // Rotas organizadas
 app.use('/', usuarios);
 app.use('/login', login);
 app.use('/', category);
 app.use('/', bancos);
+app.use('/', moviment);
 
 app.listen(8000, () => console.log("Servidor rodando na porta 8000"));
